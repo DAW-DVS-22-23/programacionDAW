@@ -16,5 +16,33 @@ namespace Ejercicio_1
         {
             InitializeComponent();
         }
+
+
+        int [] numeros = new int [9];
+        void muestraNum(ref string texto, ref int i)
+        {
+            if (i < 9)
+                texto = texto + i + ", ";
+            else
+                texto = texto + i + ".";
+        }
+
+        void creaVector(ref string texto)
+        {
+            for (int i = 0; i < numeros.Length; i++)
+            {
+                int numero = int.Parse(Input.InteractionBox("Numeri"));
+                numeros[i] = numero;
+                muestraNum(ref texto, ref i)
+            }
+
+        }
+            
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string texto = "Números: ";
+            creaVector(texto)
+            MessageBox.Show(texto);
+        }
     }
 }
