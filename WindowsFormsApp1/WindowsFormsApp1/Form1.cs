@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.VisualBasic;
 
 namespace WindowsFormsApp1
 {
@@ -15,6 +16,32 @@ namespace WindowsFormsApp1
         public Form1()
         {
             InitializeComponent();
+        }
+
+        int[] numeros = new int[9];
+        void muestraNum(ref string texto, ref int i)
+        {
+            if (i < 9)
+                texto = texto + i + ", ";
+            else
+                texto = texto + i + ".";
+        }
+
+        void creaVector(ref string texto)
+        {
+            for (int i = 0; i < numeros.Length; i++)
+            {
+                int numero = int.Parse(Interaction.InputBox("Numero: "));
+                numeros[i] = numero;
+                muestraNum(ref texto, ref i);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string texto = "Números: ";
+            creaVector(ref texto);
+            MessageBox.Show(texto);
         }
     }
 }
