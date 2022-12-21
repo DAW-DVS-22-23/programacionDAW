@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.VisualBasic;
 
 namespace Ejercicio_1
 {
@@ -31,17 +32,16 @@ namespace Ejercicio_1
         {
             for (int i = 0; i < numeros.Length; i++)
             {
-                int numero = int.Parse(Input.InteractionBox("Numeri"));
+                int numero = int.Parse(Input.InteractionBox("Numero: "));
                 numeros[i] = numero;
-                muestraNum(ref texto, ref i)
+                muestraNum(ref texto, ref i);
             }
-
         }
             
         private void button1_Click(object sender, EventArgs e)
         {
             string texto = "Números: ";
-            creaVector(texto)
+            creaVector(ref texto);
             MessageBox.Show(texto);
         }
     }
