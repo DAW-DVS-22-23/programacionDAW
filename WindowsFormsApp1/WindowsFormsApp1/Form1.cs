@@ -18,13 +18,13 @@ namespace WindowsFormsApp1
             InitializeComponent();
         }
 
-        int[] numeros = new int[9];
-        void muestraNum(ref string texto, ref int i)
+        int [] numeros = new int[10];
+        void muestraNum(ref string texto, ref int i, ref int numero)
         {
             if (i < 9)
-                texto = texto + i + ", ";
+                texto = texto + numero + ", ";
             else
-                texto = texto + i + ".";
+                texto = texto + numero + ".";
         }
 
         void creaVector(ref string texto)
@@ -33,7 +33,7 @@ namespace WindowsFormsApp1
             {
                 int numero = int.Parse(Interaction.InputBox("Numero: "));
                 numeros[i] = numero;
-                muestraNum(ref texto, ref i);
+                muestraNum(ref texto, ref i, ref numero);
             }
         }
 
